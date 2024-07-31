@@ -1,0 +1,80 @@
+<% layout("/layouts/boilerplate") %>
+<style>
+    .card {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        background-color: #999999;
+        color: white;
+        border: 2px solid black !important;
+        border-radius: 40px !important;
+    }
+    .card img {
+        width: 15vw; /* Adjust the width of the image */
+        height: 15vh; /* Adjust the height of the image */
+        object-fit: contain;
+    }
+    .card-body {
+        width: 50%; /* Adjust the width of the text container */
+        padding: 1rem;
+    }
+</style>
+<body>
+    <h1>Welcome to the KVP Dashboard !</h1><br>
+    <h4>Name of user- <%= name %></h4><br>
+    <h5>Role of user- <b><%= role %></b></h5><br>
+
+    <div class="row row-cols-lg-1 row-cols-md-1 row-cols-sm-1">
+        <a href="/dashboardHome/:userId/dashboardData/addNewStudent" class="listing-link">
+            <div class="card">
+                <img src="/images/add_student.png" class="card-img-top" alt="listing_image">
+                <div class="card-body">
+                    <p class="card-text">
+                        <h3><b>Add New Student</b></h3>
+                    </p>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="row row-cols-lg-1 row-cols-md-1 row-cols-sm-1">
+        <a href="/dashboardHome/:userId/dashboardData/kvpDataForm" class="listing-link">
+            <div class="card">
+                <img src="/images/manage_sData.png" class="card-img-top" alt="listing_image">
+                <div class="card-body">
+                    <p class="card-text">
+                        <h3><b>Manage Student Data <i>(Can view-update-delete student data)</i></b></h3>
+                    </p>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="row row-cols-lg-1 row-cols-md-1 row-cols-sm-1">
+        <a href="/dashboardHome/:userId/dashboardData/mis" class="listing-link">
+            <div class="card">
+                <img src="/images/view_aData.png" class="card-img-top" alt="listing_image">
+                <div class="card-body">
+                    <p class="card-text">
+                        <h3><b>Attendance Records</b></h3>
+                    </p>
+                </div>
+            </div>
+        </a>
+    </div>
+    
+    <div class="row row-cols-lg-1 row-cols-md-1 row-cols-sm-1">
+        <a href="#" class="listing-link">
+            <div class="card">
+                <img src="/images/dashboard.png" class="card-img-top" alt="listing_image">
+                <div class="card-body">
+                    <p class="card-text">
+                        <h3><b>Dashboard</b></h3>
+                    </p>
+                </div>
+            </div>
+        </a>
+    </div>
+
+</body>
+</html>

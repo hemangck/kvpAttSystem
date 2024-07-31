@@ -1,0 +1,94 @@
+<% layout("/layouts/boilerplate") %>
+
+<style>
+    /* Styles for printing */
+    @media print {
+        /* Hide the print button when printing */
+        #printButton, #savePdfButton {
+            display: none;
+        }
+    }
+</style>
+
+<body>
+
+    <h5><b><u>Taluka</u>:&nbsp;</b><%= filteredData[0].Taluka %></h5>
+    <h5><b><u>School</u>:&nbsp;</b><%= filteredData[0].School %></h5>
+    <h5><b><u>Class</u>:&nbsp;</b><%= filteredData[0].Class %></h5>
+    <h5><b><u>Group</u>:&nbsp;</b><%= filteredData[0].Group %></h5>
+    <h5><b><u>HOD</u>:&nbsp;</b><%= filteredData[0].HOD %></h5>
+    <h5><b><u>Supervisor</u>:&nbsp;</b><%= filteredData[0].Supervisor %></h5>
+    <h5><b><u>Kishori Tai</u>:&nbsp;</b><%= filteredData[0].KishoriTai %></h5>
+    <h5><b><u>Date</u>:&nbsp;</b><%= filteredData[0].Date %></h5>
+    <h5><b><u>TimeSlot</u>:&nbsp;</b><%= filteredData[0].TimeSlot %></h5>
+
+    
+    <div class="container mt-5">
+        <table class="table table-striped-columns custom-width-table">
+            <thead>
+                <tr>
+                    <th>Student Name</th>
+                    <th>Standard</th>
+                    <th>Attendance Status</th>
+                </tr>
+            </thead>
+    
+            <tbody class="table-group-divider">
+                <% for (let student of filteredData[0].Attendance) { %>
+                <tr>
+                    <td><%= student.name %></td>
+                    <td><%= student.std %></td>
+                    <td><%= student.status %></td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+
+        <br><br>
+
+        <h5><b><u>Total Count</u>:&nbsp;</b><%= filteredData[0].totalCount %></h5>
+        <h5><b><u>Present Count</u>:&nbsp;</b><%= filteredData[0].presentCount %></h5>
+        <h5><b><u>Absent Count</u>:&nbsp;</b><%= filteredData[0].absentCount %></h5>
+
+    </div>
+
+
+
+    <!-- <form action="/admin/download" method="post">
+
+        <input type="hidden" name="headings[Taluka]" value="<%= // filteredData[0].Taluka %>">
+        <input type="hidden" name="headings[School]" value="<%= // filteredData[0].School %>">
+        <input type="hidden" name="headings[Class]" value="<%= // filteredData[0].Class %>">
+        <input type="hidden" name="headings[Group]" value="<%= // filteredData[0].Group %>">
+        <input type="hidden" name="headings[HOD]" value="<%= // filteredData[0].HOD %>">
+        <input type="hidden" name="headings[Supervisor]" value="<%= // filteredData[0].Supervisor %>">
+        <input type="hidden" name="headings[KishoriTai]" value="<%= // filteredData[0].KishoriTai %>">
+        <input type="hidden" name="headings[Date]" value="<%= // filteredData[0].Date %>">
+        <input type="hidden" name="headings[TimeSlot]" value="<%= // filteredData[0].TimeSlot %>">
+
+        <button type="submit" id="exportBtn" class="btn btn-warning mt-3">Export to CSV file</button>
+    </form> -->
+
+
+    <form action="/dashboardHome/:userId/dashboardData/mis/:date/results/download" method="get">
+        <button type="submit" id="csvDownloadBtn" class="btn btn-warning mt-3">Download CSV file</button>
+    </form>
+    
+    <button id="printButton" class="btn btn-primary mt-3">Print Attendance</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" integrity="sha512-qZvrmS2ekKPF2mSznTQsxqPgnpkI4DNTlrdUmTzrDgektczlKNRRhy5X5AAOnx5S09ydFYWWNSfcEqDTTHgtNA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        document.getElementById('printButton').addEventListener('click', () => {
+            window.print();
+        });
+
+        document.getElementById('savePdfButton').addEventListener('click', () => {
+            const doc = new jsPDF();
+            const table = document.querySelector('.table');
+            doc.autoTable({ html: table });
+            doc.save('attendance.pdf');
+        });
+    </script>
+
+</body>

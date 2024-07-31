@@ -1,0 +1,199 @@
+<% layout("/layouts/boilerplate") %>
+
+<body>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <h3>Create a new Student entry</h3>
+                <form action="/dashboardHome/:userId/dashboardData/addNewStudent/manage-data" method="post" novalidate class="needs-validation">
+
+                    <div class="mb-3">
+                        <label for="Sname" class="form-label">Name</label>
+                        <input name="kvpData[Sname]" placeholder="Add a Student Name" type="text"
+                            class="form-control" required>
+                        <div class="invalid-feedback">Student name is missing!</div>
+                        <div class="valid-feedback">Student name is perfect!</div>
+                    </div>
+
+                    <!-- <div class="mb-3">
+                        <label for="Gender" class="form-label">Gender</label>
+                        <select name="kvpData[Gender]" class="form-control" required>
+                            <option value="" disabled selected>Add a Student Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                        
+                        <div class="invalid-feedback">Student Gender is missing!</div>
+                        <div class="valid-feedback">Student Gender is perfect!</div>
+                    </div>                     -->
+
+                    <div class="mb-3">
+                        <label for="SAddress" class="form-label">Address</label>
+                        <textarea name="kvpData[SAddress]" placeholder="Add a Student Address"
+                            class="form-control" required></textarea>
+                        <div class="invalid-feedback">Student Address is missing!</div>
+                        <div class="valid-feedback">Student Address is perfect!</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="Caste" class="form-label">Caste</label>
+                        <input name="kvpData[Caste]" placeholder="Add a Student Caste" type="text"
+                            class="form-control" required>
+                        <div class="invalid-feedback">Student Caste is missing!</div>
+                        <div class="valid-feedback">Student Caste is perfect!</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="SubCaste" class="form-label">Sub-Caste</label>
+                        <input name="kvpData[SubCaste]" placeholder="Add a Student sub-caste" type="text"
+                            class="form-control" required>
+                        <div class="invalid-feedback">Student sub-caste is missing!</div>
+                        <div class="valid-feedback">Student sub-caste is perfect!</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="ContactNum" class="form-label">Contact Number</label>
+                        <input name="kvpData[ContactNum]" placeholder="Add a Student Contact Number" type="text"
+                            class="form-control" required>
+                        <div class="invalid-feedback">Student Contact Number is missing!</div>
+                        <div class="valid-feedback">Student Contact Number is perfect!</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="AadharNo" class="form-label">Aadhar Card Number</label>
+                        <input name="kvpData[AadharNo]" placeholder="Add a Student Aadhar Card Number" type="text"
+                            class="form-control" required>
+                        <div class="invalid-feedback">Student Aadhar Card Number is missing!</div>
+                        <div class="valid-feedback">Student Aadhar Card Number is perfect!</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="DOB" class="form-label">Date of Birth</label>
+                        <input name="kvpData[DOB]" placeholder="Add a Student Date Of Birth" type="date"
+                            class="form-control" required>
+                        <div class="invalid-feedback">Student Date Of Birth is missing!</div>
+                        <div class="valid-feedback">Student Date Of Birth is perfect!</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="Taluka" class="form-label">Taluka</label>
+                        <select name="kvpData[Taluka]" class="form-control" required>
+                            <option value="" disabled selected>Add a Taluka name</option>
+                            <option value="Murbad">Murbad</option>
+                            <option value="Shahapur">Shahapur</option>
+                        </select>
+                        <div class="invalid-feedback">Taluka name is missing!</div>
+                        <div class="valid-feedback">Taluka name is perfect!</div>
+                    </div>
+                    
+
+                    <div class="mb-3">
+                        <label for="Std" class="form-label">Standard</label>
+                        <input name="kvpData[Std]" placeholder="Add a Standard of student" type="number"
+                            class="form-control" required>
+                        <div class="invalid-feedback">Standard of student is missing!</div>
+                        <div class="valid-feedback">Standard is perfect!</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="School" class="form-label">School</label>
+                        <select name="kvpData[School]" class="form-control" required>
+                            <option value="" disabled selected>Add a School name</option>
+                            <option value="School1">School1</option>
+                            <option value="School2">School2</option>
+                            <option value="School3">School3</option>
+                            <!-- Add more school options as needed -->
+                        </select>
+                        <div class="invalid-feedback">School name is missing!</div>
+                        <div class="valid-feedback">School name is perfect!</div>
+                    </div>
+                    
+
+                    <div class="mb-3">
+                        <label for="Class" class="form-label">Class</label>
+                        <input name="kvpData[Class]" placeholder="Add a Class number" type="number"
+                            class="form-control" required>
+                        <div class="invalid-feedback">Class number is missing!</div>
+                        <div class="valid-feedback">Class number is perfect!</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="Group" class="form-label">Group</label>
+                        <select name="kvpData[Group]" class="form-control" required>
+                            <option value="" disabled selected>Add a Group name</option>
+                            <option value="Group1">Group1</option>
+                            <option value="Group2">Group2</option>
+                            <option value="Group3">Group3</option>
+                            <!-- Add more group options as needed -->
+                        </select>
+                        <div class="invalid-feedback">Group name is missing!</div>
+                        <div class="valid-feedback">Group name is perfect!</div>
+                    </div>
+                    
+
+                    <div class="mb-3">
+                        <label for="HOD" class="form-label">HOD</label>
+                        <select name="kvpData[HOD]" class="form-control" required>
+                            <option value="" disabled selected>Add a HOD name</option>
+                            <option value="HOD1">HOD1</option>
+                            <option value="HOD2">HOD2</option>
+                            <option value="HOD3">HOD3</option>
+                            <!-- Add more HOD options as needed -->
+                        </select>
+                        <div class="invalid-feedback">HOD name is missing!</div>
+                        <div class="valid-feedback">HOD name is perfect!</div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="Supervisor" class="form-label">Supervisor</label>
+                        <select name="kvpData[Supervisor]" class="form-control" required>
+                            <option value="" disabled selected>Add a Supervisor name</option>
+                            <option value="Supervisor1">Supervisor1</option>
+                            <option value="Supervisor2">Supervisor2</option>
+                            <option value="Supervisor3">Supervisor3</option>
+                            <!-- Add more Supervisor options as needed -->
+                        </select>
+                        <div class="invalid-feedback">Supervisor name is missing!</div>
+                        <div class="valid-feedback">Supervisor name is perfect!</div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="KishoriTai" class="form-label">Kishori Tai</label>
+                        <select name="kvpData[KishoriTai]" class="form-control" required>
+                            <option value="" disabled selected>Add a Kishori Tai name</option>
+                            <option value="KishoriTai1">KishoriTai1</option>
+                            <option value="KishoriTai2">KishoriTai2</option>
+                            <option value="KishoriTai3">KishoriTai3</option>
+                            <!-- Add more Kishori Tai options as needed -->
+                        </select>
+                        <div class="invalid-feedback">Kishori Tai name is missing!</div>
+                        <div class="valid-feedback">Kishori Tai name is perfect!</div>
+                    </div>                 
+
+
+                    <button class="btn btn-dark add-btn mt-3">ADD</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('DOB').addEventListener('change', function() {
+            let input = this.value;
+            let date = new Date(input);
+            if (!isNaN(date.getTime())) {
+                let day = ('0' + date.getDate()).slice(-2);
+                let month = ('0' + (date.getMonth() + 1)).slice(-2);
+                let year = date.getFullYear();
+                this.value = `${day}-${month}-${year}`;
+            }
+        });
+    </script>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6N6N6jIeHz"
+        crossorigin="anonymous"></script>
+
+</body>

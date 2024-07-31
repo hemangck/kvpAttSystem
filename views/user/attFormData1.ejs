@@ -1,0 +1,176 @@
+<% layout("/layouts/boilerplate") %>
+
+<body>
+        
+        <form action="/dashboardHome/:userId/dashboardCRoom/attForm/studList" method="post">
+
+            <!-- Select Taluka -->
+            <label for="taluka" class="form-label">Taluka&nbsp;<sup>*</sup></label>
+            <select name="attData[Taluka]" id="taluka" class="form-control" required>
+                <option value="">---Not Selected---</option>
+                <% for (let taluka of Talukas) { %>
+                    <option value="<%= taluka %>"><%= taluka %></option>
+                <% } %>
+            </select>
+
+            <div class="invalid-feedback">Taluka not selected!</div>
+            <div class="valid-feedback">Taluka selected!</div>
+
+            <br><br>
+            
+            <!-- Select School -->
+            <label for="school" class="form-label">School&nbsp;<sup>*</sup></label>
+            <select name="attData[School]" id="school" class="form-control" required>
+                <option value="">---Not Selected---</option>
+                <% for (let school of Schools) { %>
+                    <option value="<%= school %>"><%= school %></option>
+                 <% } %>
+            </select>
+
+            <div class="invalid-feedback">School not selected!</div>
+            <div class="valid-feedback">School selected!</div>
+
+            <br><br>
+            
+            <!-- Select Class Number -->
+            <label for="sClass" class="form-label">Class Number&nbsp;<sup>*</sup></label>
+            <select name="attData[Class]" id="sClass" class="form-control" required>
+                <option value="">---Not Selected---</option>
+                <% for (let classKVP of Classes) { %>
+                    <option value="<%= classKVP %>"><%= classKVP %></option>
+                 <% } %>
+            </select>
+
+            <div class="invalid-feedback">Class not selected!</div>
+            <div class="valid-feedback">Class selected!</div>
+
+            <br><br>
+            
+            <!-- Select Group Name-->
+            <label for="group" class="form-label">Group Name&nbsp;<sup>*</sup></label>
+            <select name="attData[Group]" id="group" class="form-control" required>
+                <option value="">---Not Selected---</option>
+                <% for (let group of Groups) { %>
+                    <option value="<%= group %>"><%= group %></option>
+                <% } %>
+            </select>
+
+            <div class="invalid-feedback">Group not selected!</div>
+            <div class="valid-feedback">Group selected!</div>
+
+            <br><br>
+            
+            <!-- Select HOD -->
+            <label for="hod" class="form-label">HOD&nbsp;<sup>*</sup></label>
+            <select name="attData[HOD]" id="hod" class="form-control" required>
+                <option value="">---Not Selected---</option>
+                <% for (let hod of HODs) { %>
+                    <option value="<%= hod %>"><%= hod %></option>
+                <% } %>
+            </select>
+
+            <div class="invalid-feedback">HOD not selected!</div>
+            <div class="valid-feedback">HOD selected!</div>
+
+            <br><br>
+            
+            <!-- Select Supervisor -->
+            <label for="supV" class="form-label">Supervisor&nbsp;<sup>*</sup></label>
+            <select name="attData[Supervisor]" id="supV" class="form-control" required>
+                <option value="">---Not Selected---</option>
+                <% for (let supV of Supervisors) { %>
+                    <option value="<%= supV %>"><%= supV %></option>
+                <% } %>
+            </select>
+
+            <div class="invalid-feedback">Supervisor not selected!</div>
+            <div class="valid-feedback">Supervisor selected!</div>
+
+            <br><br>
+            
+            <!-- Select KishoriTai -->
+            <label for="kTai" class="form-label">Kishori Tai&nbsp;<sup>*</sup></label>
+            <select name="attData[KishoriTai]" id="kTai" class="form-control" required>
+                <option value="">---Not Selected---</option>
+                <% for (let kTai of KishoriTais) { %>
+                    <option value="<%= kTai %>"><%= kTai %></option>
+                <% } %>
+            </select>
+
+            <div class="invalid-feedback">Kishori Tai not selected!</div>
+            <div class="valid-feedback">Kishori Tai selected!</div>
+
+            <br><br>
+            
+            <!-- Date -->
+            <label for="date" class="form-label">Date&nbsp;<sup>*</sup></label>
+            <input type="text" id="date" name="attData[Date]" class="form-control" value="-" readonly>
+
+
+            <div class="invalid-feedback">Date not selected!</div>
+            <div class="valid-feedback">Date selected!</div>
+
+            <br><br>
+
+            <!-- Month -->
+            <label for="month" class="form-label">Month&nbsp;<sup>*</sup></label>
+            <input type="text" id="month" name="attData[Month]" class="form-control" value="-" readonly>
+
+            <div class="invalid-feedback">Month not selected!</div>
+            <div class="valid-feedback">Month selected!</div>
+
+            <br><br>
+
+            <!-- Week -->
+            <label for="week" class="form-label">Week&nbsp;<sup>*</sup></label>
+            <input type="text" id="week" name="attData[Week]" class="form-control" value="-" readonly>
+
+            <div class="invalid-feedback">Week not selected!</div>
+            <div class="valid-feedback">Week selected!</div>
+
+            <br><br>
+            
+            <!-- Time Picker for Start Time and End Time -->
+            <label for="sTime" class="form-label">Start time&nbsp;<sup>*</sup></label>
+            <div class="input-group has-validation">
+                <input type="time" id="sTime" name="sTime" class="form-control" required>
+                <div class="invalid-feedback">Start time not selected!</div>
+                <div class="valid-feedback">Start time selected!</div>
+            </div>
+            <br>
+
+            <label for="eTime" class="form-label">End time&nbsp;<sup>*</sup></label>
+            <div class="input-group has-validation">
+                <input type="time" id="eTime" name="eTime" class="form-control" required>
+                <div class="invalid-feedback">End time not selected!</div>
+                <div class="valid-feedback">End time selected!</div>
+            </div>
+            
+            <br><br>
+
+            <!-- TimeSlot -->
+            <label for="tSlot" class="form-label">Time Slot&nbsp;<sup>*</sup></label>
+            <div class="input-group has-validation">
+                <input type="text" id="tSlot" name="attData[tSlot]" class="form-control" readonly>
+
+                <div class="invalid-feedback">Time Slot not selected!</div>
+                <div class="valid-feedback">Time Slot selected!</div>
+            </div>
+
+            <br><br>
+
+            <button>Search for list of students</button>
+
+            <br><br>
+
+        </form>
+        
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Include Script for Attendance Form Logic -->
+    <script src="/js/atF1Script.js"></script>
+    
+    <!-- Include Bootstrap Bundle for Bootstrap Components -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>

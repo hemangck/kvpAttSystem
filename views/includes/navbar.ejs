@@ -1,0 +1,45 @@
+<style>
+  #kvpLogo {
+    width: 6vw;
+    height: 12vh;  
+  }
+
+  #imgContainer {
+    padding: 1;
+    object-fit: contain;
+  }
+
+  @media (max-width: 768px) {
+    #kvpLogo {
+      width: 50px;
+      height: auto;
+    }
+  }
+</style>
+
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="/images/logo.jpg" alt="Logo" id="kvpLogo" class="d-inline-block align-text-top">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav ms-auto">
+        <!-- Add your navigation links here -->
+        <!-- Example:
+        <a class="nav-link" href="/">Home</a>
+        <a class="nav-link" href="/admin">ADMIN</a>
+        <a class="nav-link" href="/user/attendance-form">USER</a>
+        <a class="nav-link" href="/admin/manage-data/new">Add new student</a>
+        -->
+        <% if(currUser) { %>
+        <div class="btns">
+          <a class="btn btn-warning" href="/logout" role="button">LOGOUT</a>
+        </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</nav>

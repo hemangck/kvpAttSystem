@@ -1,0 +1,155 @@
+<% layout("/layouts/boilerplate") %>
+
+<body>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-10 offset-1">
+                <h3>Edit a student entry</h3>
+                <form method="post" action="/dashboardHome/:userId/dashboardData/crudData/manage-data/<%= kvpDataVar._id %>?_method=PUT" novalidate
+                    class="needs-validation">
+
+                    <div class="mb-3">
+                        <label for="Sname" class="form-label">Name</label>
+                        <input name="kvpDataVar[Sname]" placeholder="Add a Student Name" type="text"
+                            value="<%= kvpDataVar.Sname %>" class="form-control" required />
+                        <div class="invalid-feedback">Student name is missing!</div>
+                        <div class="valid-feedback">Student name is perfect!</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="SAddress" class="form-label">Address</label>
+                        <textarea name="kvpDataVar[SAddress]" placeholder="Add a Student Address"
+                            class="form-control" required><%= kvpDataVar.SAddress %></textarea>
+                        <div class="invalid-feedback">Student Address is missing!</div>
+                        <div class="valid-feedback">Student Address is perfect!</div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="Caste" class="form-label">Caste</label>
+                            <input name="kvpDataVar[Caste]" placeholder="Add a Student Caste" type="text"
+                                value="<%= kvpDataVar.Caste %>" class="form-control" required />
+                            <div class="invalid-feedback">Student Caste is missing!</div>
+                            <div class="valid-feedback">Student Caste is perfect!</div>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="SubCaste" class="form-label">Sub-caste</label>
+                            <input name="kvpDataVar[SubCaste]" placeholder="Add a Student sub-caste" type="text"
+                                value="<%= kvpDataVar.SubCaste %>" class="form-control" required />
+                            <div class="invalid-feedback">Student sub-caste is missing!</div>
+                            <div class="valid-feedback">Student sub-caste is perfect!</div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="ContactNum" class="form-label">Contact Number</label>
+                            <input name="kvpDataVar[ContactNum]" placeholder="Add a Student Contact Number"
+                                type="text" value="<%= kvpDataVar.ContactNum %>" class="form-control" required />
+                            <div class="invalid-feedback">Student Contact Number is missing!</div>
+                            <div class="valid-feedback">Student Contact Number is perfect!</div>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="AadharNo" class="form-label">Aadhar Card Number</label>
+                            <input name="kvpDataVar[AadharNo]" placeholder="Add a Student Aadhar Card Number"
+                                type="text" value="<%= kvpDataVar.AadharNo %>" class="form-control" required />
+                            <div class="invalid-feedback">Student Aadhar Card Number is missing!</div>
+                            <div class="valid-feedback">Student Aadhar Card Number is perfect!</div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="DOB" class="form-label">Date Of Birth</label>
+                            <input name="kvpDataVar[DOB]" placeholder="Add a Student Date Of Birth" type="date"
+                                value="<%= kvpDataVar.DOB %>" class="form-control" required />
+                            <div class="invalid-feedback">Student Date Of Birth is missing!</div>
+                            <div class="valid-feedback">Student Date Of Birth is perfect!</div>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="Taluka" class="form-label">Taluka</label>
+                            <input name="kvpDataVar[Taluka]" placeholder="Add a Taluka name" type="text"
+                                value="<%= kvpDataVar.Taluka %>" class="form-control" required />
+                            <div class="invalid-feedback">Taluka name is missing!</div>
+                            <div class="valid-feedback">Taluka name is perfect!</div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="Std" class="form-label">Standard</label>
+                            <input name="kvpDataVar[Std]" placeholder="Add a Standard of student" type="number"
+                                value="<%= kvpDataVar.Std %>" class="form-control" required />
+                            <div class="invalid-feedback">Standard of student is missing!</div>
+                            <div class="valid-feedback">Standard is perfect!</div>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="School" class="form-label">School</label>
+                            <input name="kvpDataVar[School]" placeholder="Add a School name" type="text"
+                                value="<%= kvpDataVar.School %>" class="form-control" required />
+                            <div class="invalid-feedback">School name is missing!</div>
+                            <div class="valid-feedback">School name is perfect!</div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="Class" class="form-label">Class Number</label>
+                            <input name="kvpDataVar[Class]" placeholder="Add a Class Number" type="number"
+                                value="<%= kvpDataVar.Class %>" class="form-control" required />
+                            <div class="invalid-feedback">Class number is missing!</div>
+                            <div class="valid-feedback">Class number is perfect!</div>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="Group" class="form-label">Group Name</label>
+                            <input name="kvpDataVar[Group]" placeholder="Add a Group name" type="text"
+                                value="<%= kvpDataVar.Group %>" class="form-control" required />
+                            <div class="invalid-feedback">Group name is missing!</div>
+                            <div class="valid-feedback">Group name is perfect!</div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="HOD" class="form-label">HOD Name</label>
+                            <input name="kvpDataVar[HOD]" placeholder="Add a HOD name" type="text"
+                                value="<%= kvpDataVar.HOD %>" class="form-control" required />
+                            <div class="invalid-feedback">HOD name is missing!</div>
+                            <div class="valid-feedback">HOD name is perfect!</div>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="Supervisor" class="form-label">Supervisor Name</label>
+                            <input name="kvpDataVar[Supervisor]" placeholder="Add a Supervisor name" type="text"
+                                value="<%= kvpDataVar.Supervisor %>" class="form-control" required />
+                            <div class="invalid-feedback">Supervisor name is missing!</div>
+                            <div class="valid-feedback">Supervisor name is perfect!</div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="KishoriTai" class="form-label">Kishori Tai Name</label>
+                        <input name="kvpDataVar[KishoriTai]" placeholder="Add a Kishori Tai name" type="text"
+                            value="<%= kvpDataVar.KishoriTai %>" class="form-control" required />
+                        <div class="invalid-feedback">Kishori Tai name is missing!</div>
+                        <div class="valid-feedback">Kishori Tai name is perfect!</div>
+                    </div>
+
+                    <button class="btn btn-dark edit-btn mt-3">EDIT</button>
+                    <br><br>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
