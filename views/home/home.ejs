@@ -78,9 +78,18 @@
                     </ul>                      
                 </p>
             </div>
+
+            <% if(!currUser){ %> 
             <div class="col-md-4">
                 <a class="btn btn-warning btn-lg mb-2" href="/login" role="button">LOGIN</a><br>   
             </div>
+            <% } %>
+
+            <% if(currUser){ %> 
+                <div class="col-md-4">
+                    <a class="btn btn-primary btn-lg mb-2" href="/<%= userId %>/dashboard" role="button">GO TO KVP DIGITAL DASHBOARD</a><br>   
+                </div>
+            <% } %>
         </div>
     </div>
 

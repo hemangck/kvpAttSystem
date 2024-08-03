@@ -2,21 +2,83 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const kvpDataSchema = new Schema({
-  Sname: String,
-  SAddress: String,
-  Caste: String,
-  SubCaste: String,
-  ContactNum:String,
-  AadharNo: String,
-  DOB: String,
-  Taluka: String,
-  Std: Number,
-  School: String,
-  Class: Number,
-  Group: String,
-  HOD: String,
-  Supervisor: String,
-  KishoriTai: String,
+  Sname: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  SAddress: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  Caste: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  SubCaste: {
+    type: String,
+    trim: true
+  },
+  ContactNum: {
+    type: String,
+    required: true,
+    // match: /^[0-9]{10}$/, // Ensure it is a 10-digit number
+    trim: true
+  },
+  AadharNo: {
+    type: String,
+    required: true,
+    // match: /^[0-9]{4}\s?[0-9]{4}\s?[0-9]{6}$/, // Ensure it is a 12-digit number with optional spaces
+    trim: true
+  },
+  DOB: {
+    type: String,
+    required: true
+  },
+  Taluka: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  Std: {
+    type: Number,
+    required: true,
+    min: 1,
+    max: 12
+  },
+  School: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  Class: {
+    type: Number,
+    required: true,
+    min: 1,
+    max: 12
+  },
+  Group: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  HOD: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  Supervisor: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  KishoriTai: {
+    type: String,
+    required: true,
+    trim: true
+  }
 });
 
 const kvpData = mongoose.model("kvpData", kvpDataSchema);

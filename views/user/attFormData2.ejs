@@ -1,6 +1,6 @@
 <% layout("/layouts/boilerplate") %>
 
-<form id="attendanceForm" action="/dashboardHome/:userId/dashboardCRoom/attForm/studList/saveAtt" method="post" novalidate class="needs-validation">
+<form id="attendanceForm" action="/<%= userId %>/dashboard/dashboardCRoom/attForm/studList/saveAtt" method="post" novalidate class="needs-validation">
 
     <h5><b><u>Taluka</u>:&nbsp;</b><%= taluka0 %></h5>
     <h5><b><u>School</u>:&nbsp;</b><%= school0 %></h5>
@@ -25,7 +25,7 @@
     <input type="hidden" name="attData[Date]" id="date" value="<%= date0 %>">
     <input type="hidden" name="attData[Month]" id="month" value="<%= month0 %>">
     <input type="hidden" name="attData[Week]" id="week" value="<%= week0 %>">
-    <input type="hidden" name="attData[tSlot]" id="tSlot" value="<%= tSlot0 %>">
+    <input type="hidden" name="attData[TimeSlot]" id="tSlot" value="<%= tSlot0 %>">
 
 
         <!-- Summary Table for Student Attendance -->
@@ -68,13 +68,13 @@
 
     <!-- Attendance Summary -->
     <div class="mt-3">
-        <p>Total Count: <b><%= totalCount %></b></p>
-        <p>Present Count: <span id="presentCount">0</span></p>
-        <p>Absent Count: <span id="absentCount">0</span></p>
+        <p>Total Count: <b><span id="totalCount">0</span></b></p>
+        <p>Present Count: <b><span id="presentCount">0</span></b></p>
+        <p>Absent Count: <b><span id="absentCount">0</span></b></p>
 
-        <input type="hidden" name="attData[tCount]" value="<%= totalCount %>">
-        <input type="hidden" name="attData[pCount]" id="pCountH">
-        <input type="hidden" name="attData[aCount]" id="aCountH">
+        <input type="hidden" name="attData[totalCount]" id="tCountH">
+        <input type="hidden" name="attData[presentCount]" id="pCountH">
+        <input type="hidden" name="attData[absentCount]" id="aCountH">
 
     </div>
     <br><br><br>

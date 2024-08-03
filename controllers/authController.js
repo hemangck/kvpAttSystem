@@ -13,7 +13,7 @@ module.exports.signup = async (req, res, next) => {
 
         if (!password) {
             req.flash("error", "Password is required.");
-            return res.redirect("/signup");
+            return res.redirect(`/${userId}/dashboard/registerMember`);
         }
 
         // Create a new user instance with the provided email and username
@@ -30,7 +30,7 @@ module.exports.signup = async (req, res, next) => {
                 return next(err); // Pass the error to the error handling middleware
             }
             req.flash("success", "User registered successfully!");
-            res.redirect("/dashboardHome/:userId/registerMember"); // Ensure a response is sent after successful login
+            res.redirect(`/${userId}/dashboard/registerMember`); // Ensure a response is sent after successful login
         });
 
     } catch (e) {
@@ -46,18 +46,16 @@ module.exports.renderLoginForm = (req, res) => {
 module.exports.login = async (req, res) => {
     const { username, password, role } = req.body;
 
+    const userIdF = await User.findOne({username: username}, {_id: 1}).lean();
+
+    const userIdString = userIdF ? userIdF._id.toString() : null;
+
+    res.locals.userId = userIdString;
+
     req.flash("success", "Welcome to Kishori Vikas Prakalp Online Portal!");
 
-    if (role === "Admin") {
-        let redirectUrl = res.locals.redirectUrl || "/dashboardAdminHome";
-        res.redirect(redirectUrl);
-    } else if (role === "Supervisor") {
-        let redirectUrl = res.locals.redirectUrl || "/dashboardSupVHome";
-        res.redirect(redirectUrl);
-    } else if (role === "Kishori_Tai") {
-        let redirectUrl = res.locals.redirectUrl || "/dashboardKTaiHome";
-        res.redirect(redirectUrl);
-    }
+    let redirectUrl = res.locals.redirectUrl || `/${userIdString}/dashboard`;
+    res.redirect(redirectUrl);
 };
 
 module.exports.logout = (req, res, next) => {

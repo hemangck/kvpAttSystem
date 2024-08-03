@@ -8,7 +8,7 @@
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
             <% for(let date of Dates){ %>
             <div class="col">
-                <a href="/dashboardHome/:userId/dashboardData/mis/<%= date %>" class="listing-link">
+                <a href="/<%= userId %>/dashboard/dashboardData/mis/<%= date %>" class="listing-link">
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title"><%= date %></h5>

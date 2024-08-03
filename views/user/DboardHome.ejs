@@ -24,8 +24,9 @@
     <h4>Name of user- <%= name %></h4><br>
     <h5>Role of user- <b><%= role %></b></h5><br>
 
+    <% if(role === "Admin" || role === "Supervisor" || role === "Kishori_Tai") { %>
     <div class="row row-cols-lg-1 row-cols-md-1 row-cols-sm-1">
-        <a href="/dashboardHome/:userId/dashboardCRoom" class="listing-link">
+        <a href="/<%= userId %>/dashboard/dashboardCRoom" class="listing-link">
             <div class="card">
                 <img src="/images/classroom.png" class="card-img-top" alt="attForm_img">
                 <div class="card-body">
@@ -34,9 +35,11 @@
             </div>
         </a>
     </div>
+    <% } %>
 
+    <% if(role === "Admin" || role === "Supervisor") { %>
     <div class="row row-cols-lg-1 row-cols-md-1 row-cols-sm-1">
-        <a href="/dashboardHome/:userId/dashboardData" class="listing-link">
+        <a href="/<%= userId %>/dashboard/dashboardData" class="listing-link">
             <div class="card">
                 <img src="/images/data.png" class="card-img-top" alt="listing_image">
                 <div class="card-body">
@@ -45,5 +48,19 @@
             </div>
         </a>
     </div>
+    <% } %>
+
+    <% if(role === "Admin") { %>
+    <div class="row row-cols-lg-1 row-cols-md-1 row-cols-sm-1">
+        <a href="/<%= userId %>/dashboard/registerMember" class="listing-link">
+            <div class="card">
+                <img src="/images/register_member.png" class="card-img-top" alt="listing_image">
+                <div class="card-body">
+                    <h3><b>REGISTER MEMBER</b></h3>
+                </div>
+            </div>
+        </a>
+    </div>
+    <% } %>
 </body>
 </html>

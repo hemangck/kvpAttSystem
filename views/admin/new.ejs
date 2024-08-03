@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-lg-8 offset-lg-2">
                 <h3>Create a new Student entry</h3>
-                <form action="/dashboardHome/:userId/dashboardData/addNewStudent/manage-data" method="post" novalidate class="needs-validation">
+                <form action="/<%= userId %>/dashboard/dashboardData/addNewStudent/manage-data" method="post" novalidate class="needs-validation">
 
                     <div class="mb-3">
                         <label for="Sname" class="form-label">Name</label>
@@ -100,9 +100,8 @@
                         <label for="School" class="form-label">School</label>
                         <select name="kvpData[School]" class="form-control" required>
                             <option value="" disabled selected>Add a School name</option>
-                            <option value="School1">School1</option>
-                            <option value="School2">School2</option>
-                            <option value="School3">School3</option>
+                            <option value="School1">Govt. Ashram School Shenave</option>
+                            <option value="School2">Rajguru Highschool Sakadbav</option>
                             <!-- Add more school options as needed -->
                         </select>
                         <div class="invalid-feedback">School name is missing!</div>
@@ -122,9 +121,8 @@
                         <label for="Group" class="form-label">Group</label>
                         <select name="kvpData[Group]" class="form-control" required>
                             <option value="" disabled selected>Add a Group name</option>
-                            <option value="Group1">Group1</option>
-                            <option value="Group2">Group2</option>
-                            <option value="Group3">Group3</option>
+                            <option value="Group1">Hirkani</option>
+                            <option value="Group2">Sathiya</option>
                             <!-- Add more group options as needed -->
                         </select>
                         <div class="invalid-feedback">Group name is missing!</div>
@@ -136,9 +134,7 @@
                         <label for="HOD" class="form-label">HOD</label>
                         <select name="kvpData[HOD]" class="form-control" required>
                             <option value="" disabled selected>Add a HOD name</option>
-                            <option value="HOD1">HOD1</option>
-                            <option value="HOD2">HOD2</option>
-                            <option value="HOD3">HOD3</option>
+                            <option value="HOD1">Kavita Padval</option>
                             <!-- Add more HOD options as needed -->
                         </select>
                         <div class="invalid-feedback">HOD name is missing!</div>
@@ -149,9 +145,7 @@
                         <label for="Supervisor" class="form-label">Supervisor</label>
                         <select name="kvpData[Supervisor]" class="form-control" required>
                             <option value="" disabled selected>Add a Supervisor name</option>
-                            <option value="Supervisor1">Supervisor1</option>
-                            <option value="Supervisor2">Supervisor2</option>
-                            <option value="Supervisor3">Supervisor3</option>
+                            <option value="Supervisor1">Deepika Aher </option>
                             <!-- Add more Supervisor options as needed -->
                         </select>
                         <div class="invalid-feedback">Supervisor name is missing!</div>
@@ -162,9 +156,8 @@
                         <label for="KishoriTai" class="form-label">Kishori Tai</label>
                         <select name="kvpData[KishoriTai]" class="form-control" required>
                             <option value="" disabled selected>Add a Kishori Tai name</option>
-                            <option value="KishoriTai1">KishoriTai1</option>
-                            <option value="KishoriTai2">KishoriTai2</option>
-                            <option value="KishoriTai3">KishoriTai3</option>
+                            <option value="KishoriTai1">Dipti Harne</option>
+                            <option value="KishoriTai2">Sandhya Patekar</option>
                             <!-- Add more Kishori Tai options as needed -->
                         </select>
                         <div class="invalid-feedback">Kishori Tai name is missing!</div>

@@ -35,9 +35,9 @@
         <div class="row mt-3">
             <div class="col-6 offset-3">
                 <div class="btns">
-                    <a href="/dashboardHome/:userId/dashboardData/crudData/manage-data/<%= allKvpData._id %>/edit" class="btn btn-dark col-1 offset-4 edit-btn">Edit</a>
+                    <a href="/<%= userId %>/dashboard/dashboardData/crudData/manage-data/<%= allKvpData._id %>/edit" class="btn btn-dark col-1 offset-4 edit-btn">Edit</a>
 
-                    <form method="POST" action="/dashboardHome/:userId/dashboardData/kvpDataForm/manage-data/<%= allKvpData._id %>?_method=DELETE" class="offset-1">
+                    <form action="/<%= userId %>/dashboard/dashboardData/crudData/manage-data/<%= allKvpData._id %>?_method=DELETE" method="post" class="offset-1">
                         <button class="btn btn-dark">Delete</button>
                     </form>
                 </div>

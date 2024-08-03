@@ -1,7 +1,7 @@
 <% layout("/layouts/boilerplate") %>
 
     <body>
-        <form id="attendanceForm" action="/dashboardHome/:userId/dashboardData/mis/:date/results" method="post" class="container mt-5">
+        <form id="attendanceForm" action="/<%= userId %>/dashboard/dashboardData/mis/:date/results" method="post" class="container mt-5">
 
             <input type="hidden" name="misData[Date]" id="date" value="<%= date %>">
 

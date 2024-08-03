@@ -8,7 +8,7 @@
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
             <% for(let student of filteredData){ %>
             <div class="col">
-                <a href="/dashboardHome/:userId/dashboardData/crudData/manage-data/<%= student._id %>" class="listing-link">
+                <a href="/<%= userId %>/dashboard/dashboardData/crudData/manage-data/<%= student._id %>" class="listing-link">
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title"><%= student.Sname %></h5>

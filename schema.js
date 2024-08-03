@@ -33,6 +33,9 @@ module.exports.attDataSchema = Joi.object({
         Month: Joi.string().required(),
         Week: Joi.number().required(),
         TimeSlot: Joi.string().required(),
+        totalCount:Joi.number().required().min(0),
+        presentCount:Joi.number().required().min(0),
+        absentCount:Joi.number().required().min(0),
         Attendance: Joi.array().items(
             Joi.object({
                 name: Joi.string().required(),
@@ -41,4 +44,16 @@ module.exports.attDataSchema = Joi.object({
             })
         ).required()
     }).required()
+});
+
+module.exports.userDataSchemaR = Joi.object({
+    email: Joi.string().email().required(),
+    role: Joi.string().required(),
+    name: Joi.string().required()
+});
+
+module.exports.userDataSchemaL = Joi.object({
+    username: Joi.string().required(),
+    password: Joi.string().required(),
+    role: Joi.string().required()
 });

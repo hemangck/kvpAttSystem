@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const checkboxes = document.querySelectorAll('input[name="AttStatus"]');
     let presentCount = 0;
     let absentCount = checkboxes.length;
+    document.getElementById('totalCount').textContent = checkboxes.length;
+    document.getElementById('tCountH').value = checkboxes.length;
 
     checkboxes.forEach((checkbox) => {
         checkbox.checked = false; // Set default state to absent
@@ -45,8 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
         const hiddenField = document.getElementById('hiddenField');
         hiddenField.value = JSON.stringify({
-            attendanceData, // Ensure this is an array
-            TimeSlot: document.getElementById('tSlot').value
+            attendanceData // Ensure this is an array
         });
     }
     

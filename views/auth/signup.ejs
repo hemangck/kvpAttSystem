@@ -4,9 +4,9 @@
         <h4>Name of user- <%= name %></h4><br>
         <h5><b>Role of user- <%= role %></b></h5><br>
 
-        <h1 class="col-6 offset-3">SignUp on Wanderlust</h1>
+        <h1 class="col-6 offset-3">SignUp on KVP Digital Portal</h1>
         <div class="col-6 offset-3">
-            <form action="/dashboardHome/:userId/registerMember" method="post" class="needs-validation" novalidate>
+            <form action="/<%= userId %>/dashboard/registerMember" method="post" class="needs-validation" novalidate>
 
                 <div class="mb-3">
                     <label for="name" class="form-label">Name</label>

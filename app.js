@@ -94,7 +94,14 @@ passport.deserializeUser(User.deserializeUser());
 app.use((req, res, next) => {
     res.locals.success = req.flash("success");
     res.locals.error = req.flash("error");
-    res.locals.currUser = req.user;
+    
+    if (req.user) {
+        res.locals.currUser = req.user;
+        res.locals.userId = req.user._id;
+    } else {
+        res.locals.currUser = null;
+        res.locals.userId = null;
+    }
     next();
 });
 
@@ -112,8 +119,7 @@ app.get("/demouser", async (req, res) => {
 
 // setting routes
 app.use('/', homeRoutes);
-app.use('/', adminRoutes);
-app.use('/', userRoutes);
+app.use('/:userId/dashboard', userRoutes);
 app.use('/',authRoutes);
 
 
