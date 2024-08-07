@@ -15,7 +15,7 @@ router.get('/dashboardCRoom',isLoggedIn, wrapAsync(userController.renderkTaiDboa
 router.get('/dashboardData',isLoggedIn, wrapAsync(userController.renderkTaiDboardData));
 router.get('/registerMember',isLoggedIn, wrapAsync(authController.renderSignupForm));
 router.post('/registerMember',isLoggedIn, validateUserDataR, wrapAsync(authController.renderSignupForm));
-router.post('/registerMember/saveUser',isLoggedIn, validateUserDataL, wrapAsync(authController.signup));
+router.post('/registerMember/saveUser',isLoggedIn, wrapAsync(authController.signup));
 
 // Routes to render forms in CRoom Dashboard
 router.get('/dashboardCRoom/regForm',isLoggedIn, wrapAsync(userController.renderRegForm));
