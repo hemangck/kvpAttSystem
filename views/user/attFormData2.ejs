@@ -4,7 +4,6 @@
 
     <h5><b><u>Taluka</u>:&nbsp;</b><%= taluka0 %></h5>
     <h5><b><u>School</u>:&nbsp;</b><%= school0 %></h5>
-    <h5><b><u>Class</u>:&nbsp;</b><%= class0 %></h5>
     <h5><b><u>Group</u>:&nbsp;</b><%= group0 %></h5>
     <h5><b><u>HOD</u>:&nbsp;</b><%= hod0 %></h5>
     <h5><b><u>Supervisor</u>:&nbsp;</b><%= supV0 %></h5>
@@ -14,10 +13,17 @@
     <h5><b><u>Week</u>:&nbsp;</b><%= week0 %></h5>
     <h5><b><u>TimeSlot</u>:&nbsp;</b><%= tSlot0 %></h5>
 
+    <!-- Select Class Number -->
+    <label for="sClass" class="form-label"><b>Enter Class Number</b>&nbsp;<sup>*</sup></label>
+    <input type="number" name="Class" id="sClass" class="form-control" min="1" max="12" required>
+
+    <div class="invalid-feedback">Class not selected!</div>
+    <div class="valid-feedback">Class selected!</div>
+
 
     <input type="hidden" name="attData[Taluka]" id="taluka" value="<%= taluka0 %>">
     <input type="hidden" name="attData[School]" id="school" value="<%= school0 %>">
-    <input type="hidden" name="attData[Class]" id="class" value="<%= class0 %>">
+    <input type="hidden" name="attData[Class]" id="classH">
     <input type="hidden" name="attData[Group]" id="group" value="<%= group0 %>">
     <input type="hidden" name="attData[HOD]" id="hod" value="<%= hod0 %>">
     <input type="hidden" name="attData[Supervisor]" id="supervisor" value="<%= supV0 %>">
@@ -33,6 +39,7 @@
         <table class="table table-striped-columns custom-width-table">
             <thead>
                 <tr>
+                    <th>Class Check</th>
                     <th>Student Name</th>
                     <th>Standard</th>
                     <th>Attendance Status</th>
@@ -41,6 +48,9 @@
             <tbody class="table-group-divider">
                 <% studentsData.forEach(student => { %>
                 <tr>
+                    <td id="classCBox">
+                        <input type="checkbox" id="classCheck" name="classCheck">
+                    </td>
                     <td id="sName">
                         <!-- Hidden Field for Student Name -->
                         <input type="hidden" name="Sname" value="<%= student.Sname %>">
@@ -56,9 +66,9 @@
                         <div id="toggleDiv0">
                             <div class="form-check form-switch" id="toggleDiv">
                                 <!-- Checkbox for Attendance Toggle -->
-                                <input class="form-check-input attendance-switch" name="AttStatus" data-student-id="<%= student._id %>" type="checkbox" role="switch" id="flexSwitchCheckDefault">                  
+                                <input class="form-check-input attendance-switch" name="AttStatus" data-student-id="<%= student._id %>" type="checkbox" role="switch" id="flexSwitchCheckDefault">
                             </div>
-                        </div>
+                        </div>                        
                     </td>
                 </tr>
                 <% }); %>

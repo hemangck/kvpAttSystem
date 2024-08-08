@@ -28,13 +28,14 @@ const upload = multer({ dest: 'uploads/' });
 
 // importing routes
 const homeRoutes = require('./routes/homeRoutes');
-const adminRoutes = require('./routes/adminRoutes');
 const userRoutes = require('./routes/userRoutes');
 const authRoutes = require('./routes/authRoutes');
 
+const PORT = process.env.PORT || 8080;
+
 // connecting to mongodb database
-// const MONGO_URL = "mongodb://127.0.0.1:27017/kvpDB";
-const dbUrl = process.env.ATLASDB_URL;
+const MONGO_URL = "mongodb://127.0.0.1:27017/kvpDB";
+// const dbUrl = process.env.ATLASDB_URL;
 
 main()
     .then(() => {
@@ -45,7 +46,7 @@ main()
     });
 
 async function main() {
-    await mongoose.connect(dbUrl);
+    await mongoose.connect(MONGO_URL);
 }
 
 // middlewares
@@ -58,7 +59,7 @@ app.use(express.static(path.join(__dirname, "/public/")));
 app.use(express.json());
 
 const store = MongoStore.create({
-    mongoUrl:dbUrl,
+    mongoUrl:MONGO_URL,
     crypto:{
         secret: process.env.SECRET
     },
@@ -123,38 +124,18 @@ app.use('/:userId/dashboard', userRoutes);
 app.use('/',authRoutes);
 
 
-// // error handling mechanism
-// app.all("*", (req,res,next) => {
-//     next(new ExpressError(404, "Page not found!"));
-// })
+// error handling mechanism
+app.all("*", (req,res,next) => {
+    next(new ExpressError(404, "Page not found!"));
+})
 
-// app.use((err, req, res, next) => {
-//     const { statusCode = 500, message = "something went wrong!" } = err;
-//     res.status(statusCode).render("error", { message });
-// });
-
-app.listen(8080, () => {
-    console.log("server is listening to port 8080");
+app.use((err, req, res, next) => {
+    const { statusCode = 500, message = "something went wrong!" } = err;
+    res.status(statusCode).render("error", { message });
 });
 
-// app.post('/admin/newHome/mulEnteries/upload', upload.single('csvFile'), (req,res) => {
-//     const filePath = path.join(__dirname, req.file.path);
-//     const jsonData = [];
-
-//     fs.createReadStream(filePath)
-//     .pipe(csvParser())
-//     .on('data', () => {
-//         jsonData.push(row);
-//     })
-//     .on('end', () => {
-//         fs.writeFileSync('output.json', JSON.stringify(jsonData, null, 2));
-//         res.download('output.json', 'output.json', (err) => {
-//             if(err){
-//                 console.error(err);
-//             }
-//             fs.unlinkSync(filePath); // Clean up the uploaded file
-//             fs.unlinkSync('output.json'); // Clean up the generated JSON File
-//         });
-//     });
-// });
-
+app.listen(PORT, () => {
+    console.log(`Server is listening on port ${PORT}`);
+}).on('error', (err) => {
+    console.error(`Server error: ${err.message}`);
+});

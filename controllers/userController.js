@@ -23,12 +23,12 @@ module.exports.renderAttendanceForm = async (req, res) => {
 
     const Talukas = await kvpData.distinct('Taluka');
     const Schools = await kvpData.distinct('School');
-    const Classes = await kvpData.distinct('Class');
+    // const Classes = await kvpData.distinct('Class');
     const Groups = await kvpData.distinct('Group');
     const HODs = await kvpData.distinct('HOD');
     const Supervisors = await kvpData.distinct('Supervisor');
     const KishoriTais = await kvpData.distinct('KishoriTai');
-    res.render("user/attFormData1", { Talukas, Schools, Classes, Groups, HODs, Supervisors, KishoriTais });
+    res.render("user/attFormData1", { Talukas, Schools, Groups, HODs, Supervisors, KishoriTais });
 };
 
 // controller to render different forms
@@ -38,7 +38,7 @@ module.exports.renderStudentsList = async (req, res) => {
 
     const taluka0 =  attData0.Taluka;
     const school0 =  attData0.School;
-    const class0 =  attData0.Class;
+    // const class0 =  attData0.Class;
     const group0 =  attData0.Group;
     const hod0 =  attData0.HOD;
     const supV0 =  attData0.Supervisor;
@@ -53,7 +53,6 @@ module.exports.renderStudentsList = async (req, res) => {
         {
             Taluka: taluka0,
             School: school0,
-            Class: class0,
             Group: group0,
             HOD: hod0,
             Supervisor: supV0,
@@ -65,7 +64,7 @@ module.exports.renderStudentsList = async (req, res) => {
         }
     );
 
-    res.render("user/attFormData2", { taluka0, school0, class0, group0, hod0, supV0, kTai0, date0, month0, week0, tSlot0, studentsData });
+    res.render("user/attFormData2", { taluka0, school0, group0, hod0, supV0, kTai0, date0, month0, week0, tSlot0, studentsData });
 };
 
 
@@ -296,11 +295,13 @@ module.exports.renderMisPage = async (req, res) => {
             _id: 0,
             Taluka: 1,
             School: 1,
-            Class: 1,
             Group: 1,
             HOD: 1,
             Supervisor: 1,
             KishoriTai: 1,
+            Class: 1,
+            Month: 1,
+            Week: 1,
             TimeSlot: 1,
             Attendance: 1,
         }
@@ -315,6 +316,8 @@ module.exports.renderMisPage = async (req, res) => {
     const uniqueHODs = new Set();
     const uniqueSupervisors = new Set();
     const uniqueKishoriTais = new Set();
+    const uniqueMonths = new Set();
+    const uniqueWeeks = new Set();
     const uniqueTimeSlots = new Set();
     
     for (const item of allAttData) {
@@ -325,6 +328,8 @@ module.exports.renderMisPage = async (req, res) => {
       uniqueHODs.add(item.HOD);
       uniqueSupervisors.add(item.Supervisor);
       uniqueKishoriTais.add(item.KishoriTai);
+      uniqueMonths.add(item.Month);
+      uniqueWeeks.add(item.Week);
       uniqueTimeSlots.add(item.TimeSlot);
     }    
 
@@ -335,10 +340,12 @@ module.exports.renderMisPage = async (req, res) => {
     const HODs = Array.from(uniqueHODs);
     const Supervisors = Array.from(uniqueSupervisors);
     const KishoriTais = Array.from(uniqueKishoriTais);
+    const Months = Array.from(uniqueMonths);
+    const Weeks = Array.from(uniqueWeeks);
     const TimeSlots = Array.from(uniqueTimeSlots);
   
     
-    res.render("admin/attInfoForm", { date, Talukas, Schools, Classes, Groups, HODs, Supervisors, KishoriTais, TimeSlots });
+    res.render("admin/attInfoForm", { date, Talukas, Schools, Classes, Groups, HODs, Supervisors, KishoriTais, Months, Weeks, TimeSlots });
 };
 
 
@@ -356,6 +363,8 @@ module.exports.renderMisResults = async (req, res) => {
         const SupervisorF = misAttData.Supervisor;
         const KishoriTaiF = misAttData.KishoriTai;
         const DateF = misAttData.Date;
+        const MonthF = misAttData.Month;
+        const WeekF = misAttData.Week;
         const TimeSlotF = misAttData.tSlot;
 
 
@@ -369,6 +378,8 @@ module.exports.renderMisResults = async (req, res) => {
                 Supervisor: SupervisorF,
                 KishoriTai: KishoriTaiF,
                 Date: DateF,
+                Month: MonthF,
+                Week: WeekF,
                 TimeSlot: TimeSlotF
             },
             {
@@ -381,6 +392,8 @@ module.exports.renderMisResults = async (req, res) => {
                 Supervisor: 1,
                 KishoriTai: 1,
                 Date: 1,
+                Month: 1,
+                Week: 1,
                 TimeSlot: 1,
                 Attendance: 1,
                 totalCount: 1,
@@ -388,21 +401,6 @@ module.exports.renderMisResults = async (req, res) => {
                 absentCount: 1
             }
         );
-
-
-        // console.log(filteredData);
-
-        const fields = [
-            'Taluka',
-            'School',
-            'Class',
-            'Group',
-            'HOD',
-            'Supervisor',
-            'KishoriTai',
-            'Date',
-            'TimeSlot'
-        ]
 
         res.render("admin/showAtt", { filteredData });
     } catch (error) {

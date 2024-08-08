@@ -1,56 +1,83 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const checkboxes = document.querySelectorAll('input[name="AttStatus"]');
+    const classCBoxes = document.querySelectorAll('input[name="classCheck"]');
+    const toggleSwitches = document.querySelectorAll('input[name="AttStatus"]');
+    let totalCount = 0;
     let presentCount = 0;
-    let absentCount = checkboxes.length;
-    document.getElementById('totalCount').textContent = checkboxes.length;
-    document.getElementById('tCountH').value = checkboxes.length;
+    let absentCount = 0;
 
-    checkboxes.forEach((checkbox) => {
-        checkbox.checked = false; // Set default state to absent
+    classCBoxes.forEach((checkbox, index) => {
+        const toggleSwitch = toggleSwitches[index];
+        toggleSwitch.disabled = true; // Initially disable all toggle switches
+
         checkbox.addEventListener('change', function() {
             if (checkbox.checked) {
+                toggleSwitch.disabled = false; // Enable the associated toggle switch
+                totalCount++;
+                absentCount++; // Initially consider as absent
+                document.getElementById('classH').value = document.getElementById('sClass').value;
+            } else {
+                if (!toggleSwitch.disabled) {
+                    if (toggleSwitch.checked) {
+                        presentCount--;
+                    } else {
+                        absentCount--;
+                    }
+                    totalCount--;
+                }
+                toggleSwitch.disabled = true; // Disable the associated toggle switch
+            }
+
+            updateCounts();
+        });
+
+        toggleSwitch.addEventListener('change', function() {
+            if (toggleSwitch.checked) {
                 presentCount++;
                 absentCount--;
             } else {
                 presentCount--;
                 absentCount++;
             }
-            document.getElementById('presentCount').textContent = presentCount;
-            document.getElementById('absentCount').textContent = absentCount;
-
-            document.getElementById('pCountH').value = presentCount;
-            document.getElementById('aCountH').value = absentCount;
-
-            updateHiddenField(); // Update hidden field when checkbox state changes
+            updateCounts();
         });
     });
 
+    function updateCounts() {
+        document.getElementById('totalCount').textContent = totalCount;
+        document.getElementById('presentCount').textContent = presentCount;
+        document.getElementById('absentCount').textContent = absentCount;
+
+        document.getElementById('tCountH').value = totalCount;
+        document.getElementById('pCountH').value = presentCount;
+        document.getElementById('aCountH').value = absentCount;
+
+        updateHiddenField(); // Update hidden field when counts change
+    }
+
     function updateHiddenField() {
-        const checkboxes = document.querySelectorAll('input[name="AttStatus"]');
         const attendanceData = [];
-    
         const studentNameInputs = document.querySelectorAll('input[name="Sname"]');
         const studentStdInputs = document.querySelectorAll('input[name="Std"]');
-        const sNamesArr = Array.from(studentNameInputs).map(input => input.value);
-        const sStdArr = Array.from(studentStdInputs).map(input => input.value);
-    
-        checkboxes.forEach((checkbox, index) => {
-            const studentName = sNamesArr[index];
-            const studentStd = sStdArr[index];
-    
+
+        studentNameInputs.forEach((input, index) => {
+            if (!classCBoxes[index].checked) return; // Skip unchecked checkboxes
+
+            const studentName = input.value;
+            const studentStd = studentStdInputs[index].value;
+            const status = toggleSwitches[index].checked ? "present" : "absent";
+
             attendanceData.push({
                 name: studentName,
                 std: studentStd,
-                status: checkbox.checked ? "present" : "absent"
+                status: status
             });
         });
-    
+
         const hiddenField = document.getElementById('hiddenField');
         hiddenField.value = JSON.stringify({
-            attendanceData // Ensure this is an array
+            attendanceData: attendanceData
         });
     }
-    
 
     document.getElementById('attendanceForm').addEventListener('submit', updateHiddenField);
 });

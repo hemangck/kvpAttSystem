@@ -32,20 +32,6 @@
 
             <br><br>
             
-            <!-- Select Class Number -->
-            <label for="sClass" class="form-label">Class Number&nbsp;<sup>*</sup></label>
-            <select name="attData[Class]" id="sClass" class="form-control" required>
-                <option value="">---Not Selected---</option>
-                <% for (let classKVP of Classes) { %>
-                    <option value="<%= classKVP %>"><%= classKVP %></option>
-                 <% } %>
-            </select>
-
-            <div class="invalid-feedback">Class not selected!</div>
-            <div class="valid-feedback">Class selected!</div>
-
-            <br><br>
-            
             <!-- Select Group Name-->
             <label for="group" class="form-label">Group Name&nbsp;<sup>*</sup></label>
             <select name="attData[Group]" id="group" class="form-control" required>

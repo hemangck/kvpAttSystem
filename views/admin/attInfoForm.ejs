@@ -28,16 +28,7 @@
                 </div>
             </div>
             <div class="row mt-3">
-                <div class="col-md-6">
-                    <label for="class" class="form-label">Choose Class:</label>
-                    <select name="misData[Class]" id="sClass" class="form-select">
-                        <% for (let classKVP of Classes) { %>
-                            <option value="<%= classKVP %>">
-                                <%= classKVP %>
-                            </option>
-                            <% } %>
-                    </select>
-                </div>
+
                 <div class="col-md-6">
                     <label for="group" class="form-label">Choose Group:</label>
                     <select name="misData[Group]" id="group" class="form-select">
@@ -48,8 +39,7 @@
                             <% } %>
                     </select>
                 </div>
-            </div>
-            <div class="row mt-3">
+
                 <div class="col-md-6">
                     <label for="hod" class="form-label">Choose HOD:</label>
                     <select name="misData[HOD]" id="hod" class="form-select">
@@ -60,6 +50,9 @@
                             <% } %>
                     </select>
                 </div>
+            </div>
+            <div class="row mt-3">
+                
                 <div class="col-md-6">
                     <label for="supV" class="form-label">Choose Supervisor:</label>
                     <select name="misData[Supervisor]" id="supV" class="form-select">
@@ -70,14 +63,51 @@
                             <% } %>
                     </select>
                 </div>
-            </div>
-            <div class="row mt-3">
+
                 <div class="col-md-6">
                     <label for="kTai" class="form-label">Choose KishoriTai:</label>
                     <select name="misData[KishoriTai]" id="kTai" class="form-select">
                         <% for (let kTai of KishoriTais) { %>
                             <option value="<%= kTai %>">
                                 <%= kTai %>
+                            </option>
+                            <% } %>
+                    </select>
+                </div>
+
+            </div>
+            <div class="row mt-3">
+                
+                <div class="col-md-6">
+                    <label for="month" class="form-label">Choose Month:</label>
+                    <select name="misData[Month]" id="month" class="form-select">
+                        <% for (let month of Months) { %>
+                            <option value="<%= month %>"><%= month %></option>
+                        <% } %>
+                    </select>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="week" class="form-label">Choose Week:</label>
+                    <select name="misData[Week]" id="week" class="form-select">
+                        <% for (let week of Weeks) { %>
+                            <option value="<%= week %>">
+                                <%= week %>
+                            </option>
+                            <% } %>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="row mt-3">
+
+                <div class="col-md-6">
+                    <label for="class" class="form-label">Choose Class:</label>
+                    <select name="misData[Class]" id="sClass" class="form-select">
+                        <% for (let classKVP of Classes) { %>
+                            <option value="<%= classKVP %>">
+                                <%= classKVP %>
                             </option>
                             <% } %>
                     </select>
@@ -93,6 +123,7 @@
                 </div>
 
             </div>
+
 
             <div class="row mt-3">
                 <div class="col-md-6">
