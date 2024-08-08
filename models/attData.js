@@ -82,10 +82,9 @@ const attDataSchema = new Schema({
                 trim: true
             },
             std: {
-                type: Number,
+                type: String,
                 required: true,
-                min: 1,
-                max: 12
+                trim: true
             },
             status: {
                 type: String,
