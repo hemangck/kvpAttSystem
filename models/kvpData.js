@@ -54,10 +54,9 @@ const kvpDataSchema = new Schema({
     trim: true
   },
   Class: {
-    type: Number,
+    type: String,
     required: true,
-    min: 1,
-    max: 12
+    trim: true
   },
   Group: {
     type: String,
