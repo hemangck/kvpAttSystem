@@ -1,7 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-
-    document.getElementById('classH') = document.getElementById('sClass');
-
     const classCBoxes = document.querySelectorAll('input[name="classCheck"]');
     const toggleSwitches = document.querySelectorAll('input[name="AttStatus"]');
     let totalCount = 0;
@@ -49,6 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('totalCount').textContent = totalCount;
         document.getElementById('presentCount').textContent = presentCount;
         document.getElementById('absentCount').textContent = absentCount;
+        document.getElementById('classH').value = document.getElementById('sClass').value;
 
         document.getElementById('tCountH').value = totalCount;
         document.getElementById('pCountH').value = presentCount;
