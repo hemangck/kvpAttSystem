@@ -10,7 +10,7 @@ module.exports.kvpDataSchema = Joi.object({
         AadharNo: Joi.string().required(),
         DOB: Joi.date().required(),
         Taluka: Joi.string().required(),
-        Std: Joi.number().required().min(5).max(10),
+        Std: Joi.string().required(),
         School: Joi.string().required(),
         Class: Joi.number().required().min(1).max(10),
         Group: Joi.string().required(),
@@ -39,7 +39,7 @@ module.exports.attDataSchema = Joi.object({
         Attendance: Joi.array().items(
             Joi.object({
                 name: Joi.string().required(),
-                std: Joi.number().required().min(5).max(10),
+                std: Joi.string().required(),
                 status: Joi.string().required()
             })
         ).required()
