@@ -30,14 +30,15 @@ module.exports.signup = async (req, res, next) => {
                 return next(err); // Pass the error to the error handling middleware
             }
             req.flash("success", "User registered successfully!");
-            res.redirect(`/${req.user._id}/dashboard/registerMember`); // Ensure a response is sent after successful login
+            return res.redirect(`/${req.user._id}/dashboard/registerMember`); // Ensure a response is sent after successful login
         });
 
     } catch (e) {
         req.flash("error", e.message); // Display any error messages
-        res.redirect("/signup");
+        return res.redirect("/signup");
     }
 };
+
 
 module.exports.renderLoginForm = (req, res) => {
     res.render("auth/login.ejs");
