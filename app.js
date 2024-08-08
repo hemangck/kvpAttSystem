@@ -34,8 +34,8 @@ const authRoutes = require('./routes/authRoutes');
 const PORT = process.env.PORT || 8080;
 
 // connecting to mongodb database
-const MONGO_URL = "mongodb://127.0.0.1:27017/kvpDB";
-// const dbUrl = process.env.ATLASDB_URL;
+// const MONGO_URL = "mongodb://127.0.0.1:27017/kvpDB";
+const dbUrl = process.env.ATLASDB_URL;
 
 main()
     .then(() => {
@@ -46,7 +46,7 @@ main()
     });
 
 async function main() {
-    await mongoose.connect(MONGO_URL);
+    await mongoose.connect(dbUrl);
 }
 
 // middlewares
@@ -59,7 +59,7 @@ app.use(express.static(path.join(__dirname, "/public/")));
 app.use(express.json());
 
 const store = MongoStore.create({
-    mongoUrl:MONGO_URL,
+    mongoUrl:dbUrl,
     crypto:{
         secret: process.env.SECRET
     },
@@ -106,17 +106,17 @@ app.use((req, res, next) => {
     next();
 });
 
-app.get("/demouser", async (req, res) => {
-    let fakeUser = new User({
-        name: "kvp student2",
-        email:"student@gmail.com",
-        username:"kvp-student2",
-        role: "Admin"
-    });
+// app.get("/demouser", async (req, res) => {
+//     let fakeUser = new User({
+//         name: "kvp student2",
+//         email:"student@gmail.com",
+//         username:"kvp-student2",
+//         role: "Admin"
+//     });
 
-    let registeredUser = await User.register(fakeUser, "helloWorld");
-    res.send(registeredUser);
-});
+//     let registeredUser = await User.register(fakeUser, "helloWorld");
+//     res.send(registeredUser);
+// });
 
 // setting routes
 app.use('/', homeRoutes);
