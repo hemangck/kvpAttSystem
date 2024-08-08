@@ -453,6 +453,8 @@ exports.downloadCSV = async (req, res) => {
         const SupervisorF = formData.Supervisor;
         const KishoriTaiF = formData.KishoriTai;
         const DateF = formData.Date;
+        const MonthF = formData.Month; 
+        const WeekF = formData.Week; 
         const TimeSlotF = formData.TimeSlot; 
 
         const tFCh = TalukaF.charAt(0);
@@ -478,6 +480,8 @@ exports.downloadCSV = async (req, res) => {
                 Supervisor: SupervisorF,
                 KishoriTai: KishoriTaiF,
                 Date: DateF,
+                Month: MonthF,
+                Week: WeekF,
                 TimeSlot: TimeSlotF
             },
             {
@@ -511,6 +515,8 @@ exports.downloadCSV = async (req, res) => {
             Supervisor: SupervisorF,
             KishoriTai: KishoriTaiF,
             Date: DateF,
+            Month: MonthF,
+            Week: WeekF,
             TimeSlot: TimeSlotF,
             totalCount: filteredData[0]?.totalCount || '',
             presentCount: filteredData[0]?.presentCount || '',
@@ -537,6 +543,8 @@ exports.downloadCSV = async (req, res) => {
             'Supervisor',
             'KishoriTai',
             'Date',
+            'Month',
+            'Week',
             'TimeSlot',
             'name', 
             'std', 
