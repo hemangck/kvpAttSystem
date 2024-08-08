@@ -13,7 +13,7 @@ module.exports.signup = async (req, res, next) => {
 
         if (!password) {
             req.flash("error", "Password is required.");
-            return res.redirect(`/${req.user._id}/dashboard/registerMember`);
+            // return res.redirect(`/${req.user._id}/dashboard/registerMember`);
         }
 
         // Create a new user instance with the provided email and username
@@ -30,7 +30,7 @@ module.exports.signup = async (req, res, next) => {
                 return next(err); // Pass the error to the error handling middleware
             }
             req.flash("success", "User registered successfully!");
-            return res.redirect(`/${req.user._id}/dashboard/registerMember`); // Ensure a response is sent after successful login
+            // return res.redirect(`/${req.user._id}/dashboard/registerMember`); // Ensure a response is sent after successful login
         });
 
     } catch (e) {

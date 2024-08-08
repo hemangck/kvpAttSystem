@@ -109,13 +109,13 @@ app.use((req, res, next) => {
 
 // app.get("/demouser", async (req, res) => {
 //     let fakeUser = new User({
-//         name: "kvp student2",
-//         email:"student@gmail.com",
-//         username:"kvp-student2",
-//         role: "Admin"
+//         name: "Varsha Chande",
+//         email:"vschande@mail.com",
+//         username:"vschande",
+//         role: "Kishori_Tai"
 //     });
 
-//     let registeredUser = await User.register(fakeUser, "helloWorld");
+//     let registeredUser = await User.register(fakeUser, "varsha473");
 //     res.send(registeredUser);
 // });
 

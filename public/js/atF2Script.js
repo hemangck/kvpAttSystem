@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
+
+    document.getElementById('classH') = document.getElementById('sClass');
+
     const classCBoxes = document.querySelectorAll('input[name="classCheck"]');
     const toggleSwitches = document.querySelectorAll('input[name="AttStatus"]');
     let totalCount = 0;
