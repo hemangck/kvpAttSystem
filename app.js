@@ -32,7 +32,7 @@ const userRoutes = require('./routes/userRoutes');
 const authRoutes = require('./routes/authRoutes');
 
 // const PORT = process.env.PORT || 8080;
-const PORT = process.env.PORT;
+// const PORT = process.env.PORT;
 
 // connecting to mongodb database
 // const MONGO_URL = "mongodb://127.0.0.1:27017/kvpDB";
@@ -135,8 +135,8 @@ app.use((err, req, res, next) => {
     res.status(statusCode).render("error", { message });
 });
 
-app.listen(PORT, () => {
-    console.log(`Server is listening on port ${PORT}`);
+app.listen(8080, () => {
+    console.log("Server is listening on port 8080");
 }).on('error', (err) => {
     console.error(`Server error: ${err.message}`);
 });
