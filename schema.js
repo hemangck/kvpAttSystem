@@ -8,7 +8,7 @@ module.exports.kvpDataSchema = Joi.object({
         SubCaste: Joi.string().required(),
         ContactNum: Joi.string().required(),
         AadharNo: Joi.string().required(),
-        DOB: Joi.date().required(),
+        DOB: Joi.string().required(),
         Taluka: Joi.string().required(),
         Std: Joi.string().required(),
         School: Joi.string().required(),
@@ -29,7 +29,7 @@ module.exports.attDataSchema = Joi.object({
         HOD: Joi.string().required(),
         Supervisor: Joi.string().required(),
         KishoriTai: Joi.string().required(),
-        Date: Joi.date().required(),
+        Date: Joi.string().required(),
         Month: Joi.string().required(),
         Week: Joi.number().required(),
         TimeSlot: Joi.string().required(),
@@ -47,9 +47,11 @@ module.exports.attDataSchema = Joi.object({
 });
 
 module.exports.userDataSchemaR = Joi.object({
+    name: Joi.string().required(),
+    username: Joi.string().required(),
     email: Joi.string().email().required(),
-    role: Joi.string().required(),
-    name: Joi.string().required()
+    password: Joi.string().required(),
+    role: Joi.string().required()
 });
 
 module.exports.userDataSchemaL = Joi.object({

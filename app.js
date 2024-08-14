@@ -30,6 +30,7 @@ const upload = multer({ dest: 'uploads/' });
 const homeRoutes = require('./routes/homeRoutes');
 const userRoutes = require('./routes/userRoutes');
 const authRoutes = require('./routes/authRoutes');
+const gFormRoutes = require('./routes/gFormRoutes');
 
 // const PORT = process.env.PORT || 8080;
 // const PORT = process.env.PORT;
@@ -123,17 +124,18 @@ app.use((req, res, next) => {
 app.use('/', homeRoutes);
 app.use('/:userId/dashboard', userRoutes);
 app.use('/',authRoutes);
+app.use('/',gFormRoutes);
 
 
-// error handling mechanism
-app.all("*", (req,res,next) => {
-    next(new ExpressError(404, "Page not found!"));
-})
+// // error handling mechanism
+// app.all("*", (req,res,next) => {
+//     next(new ExpressError(404, "Page not found!"));
+// })
 
-app.use((err, req, res, next) => {
-    const { statusCode = 500, message = "something went wrong!" } = err;
-    res.status(statusCode).render("error", { message });
-});
+// app.use((err, req, res, next) => {
+//     const { statusCode = 500, message = "something went wrong!" } = err;
+//     res.status(statusCode).render("error", { message });
+// });
 
 app.listen(8080, () => {
     console.log("Server is listening on port 8080");

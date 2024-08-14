@@ -16,18 +16,6 @@
                         <div class="valid-feedback">Student name is perfect!</div>
                     </div>
 
-                    <!-- <div class="mb-3">
-                        <label for="Gender" class="form-label">Gender</label>
-                        <select name="kvpData[Gender]" class="form-control" required>
-                            <option value="" disabled selected>Add a Student Gender</option>
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
-                        </select>
-                        
-                        <div class="invalid-feedback">Student Gender is missing!</div>
-                        <div class="valid-feedback">Student Gender is perfect!</div>
-                    </div>                     -->
-
                     <div class="mb-3">
                         <label for="SAddress" class="form-label">Address</label>
                         <textarea name="kvpData[SAddress]" placeholder="Add a Student Address"
@@ -69,11 +57,16 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="DOB" class="form-label">Date of Birth</label>
-                        <input name="kvpData[DOB]" placeholder="Add a Student Date Of Birth" type="date"
+                        <label for="dobInput" class="form-label">Date of Birth</label>
+                        <input name="DOB" id="dobInput" placeholder="Add a Student Date Of Birth" type="date"
                             class="form-control" required>
+
+                            <input type="hidden" name="kvpData[DOB]" id="dobH">    
+                        
                         <div class="invalid-feedback">Student Date Of Birth is missing!</div>
                         <div class="valid-feedback">Student Date Of Birth is perfect!</div>
+
+                        <p id="dateTxt">-</p>
                     </div>
 
                     <div class="mb-3">
@@ -90,7 +83,7 @@
 
                     <div class="mb-3">
                         <label for="Std" class="form-label">Standard</label>
-                        <input name="kvpData[Std]" placeholder="Add a Standard of student" type="number"
+                        <input name="kvpData[Std]" placeholder="Add a Standard of student" type="text"
                             class="form-control" required>
                         <div class="invalid-feedback">Standard of student is missing!</div>
                         <div class="valid-feedback">Standard is perfect!</div>
@@ -136,7 +129,7 @@
                         <label for="HOD" class="form-label">HOD</label>
                         <select name="kvpData[HOD]" class="form-control" required>
                             <option value="" disabled selected>Add a HOD name</option>
-                            <option value="HOD1">Kavita Padval</option>
+                            <option value="Kavita Padval">Kavita Padval</option>
                             <!-- Add more HOD options as needed -->
                         </select>
                         <div class="invalid-feedback">HOD name is missing!</div>
@@ -147,7 +140,7 @@
                         <label for="Supervisor" class="form-label">Supervisor</label>
                         <select name="kvpData[Supervisor]" class="form-control" required>
                             <option value="" disabled selected>Add a Supervisor name</option>
-                            <option value="Supervisor1">Deepika Aher </option>
+                            <option value="Dipika Aher">Dipika Aher</option>
                             <!-- Add more Supervisor options as needed -->
                         </select>
                         <div class="invalid-feedback">Supervisor name is missing!</div>
@@ -174,18 +167,7 @@
         </div>
     </div>
 
-    <script>
-        document.getElementById('DOB').addEventListener('change', function() {
-            let input = this.value;
-            let date = new Date(input);
-            if (!isNaN(date.getTime())) {
-                let day = ('0' + date.getDate()).slice(-2);
-                let month = ('0' + (date.getMonth() + 1)).slice(-2);
-                let year = date.getFullYear();
-                this.value = `${day}-${month}-${year}`;
-            }
-        });
-    </script>
+    <script src="/js/dateToString.js"></script>
 
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

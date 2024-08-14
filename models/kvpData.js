@@ -10,32 +10,38 @@ const kvpDataSchema = new Schema({
   SAddress: {
     type: String,
     required: true,
-    trim: true
+    trim: true,
+    default: "NA"
   },
   Caste: {
     type: String,
     required: true,
-    trim: true
+    trim: true,
+    default: "NA"
   },
   SubCaste: {
     type: String,
-    trim: true
+    trim: true,
+    default: "NA"
   },
   ContactNum: {
     type: String,
     required: true,
     // match: /^[0-9]{10}$/, // Ensure it is a 10-digit number
-    trim: true
+    trim: true,
+    default: "NA"
   },
   AadharNo: {
     type: String,
     required: true,
     // match: /^[0-9]{4}\s?[0-9]{4}\s?[0-9]{6}$/, // Ensure it is a 12-digit number with optional spaces
-    trim: true
+    trim: true,
+    default: "NA"
   },
   DOB: {
     type: String,
-    required: true
+    required: true,
+    default: "NA"
   },
   Taluka: {
     type: String,

@@ -6,7 +6,7 @@
 
         <h1 class="col-6 offset-3">SignUp on KVP Digital Portal</h1>
         <div class="col-6 offset-3">
-            <form action="/<%= userId %>/dashboard/registerMember" method="post" class="needs-validation" novalidate>
+            <form action="/<%= userId %>/dashboard/registerMember/saveUser" method="post" class="needs-validation" novalidate>
 
                 <div class="mb-3">
                     <label for="name" class="form-label">Name</label>
@@ -27,12 +27,12 @@
                 </div>
 
                 <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                    <input name="password" id="password" placeholder="Add a password" type="password"  class="form-control" required/>
-                    <button type="button" class="btn btn-outline-secondary" id="togglePassword">
-                        <i id="eyeIcon" class="bi bi-eye-slash"></i>
-                    </button>
-                <div class="valid-feedback">Looks good!</div>
+                    <label for="password" class="form-label">Password</label>
+                        <input name="password" id="password" placeholder="Add a password" type="password"  class="form-control" required/>
+                        <button type="button" class="btn btn-outline-secondary" id="togglePassword">
+                            <i id="eyeIcon" class="bi bi-eye-slash"></i>
+                        </button>
+                    <div class="valid-feedback">Looks good!</div>
                 </div>
 
                 <div class="mb-3">
@@ -54,6 +54,7 @@
     </div>
 
     <script>
+
         document.getElementById('togglePassword').addEventListener('click', function () {
             const passwordInput = document.getElementById('password');
             const eyeIcon = document.getElementById('eyeIcon');
@@ -66,5 +67,6 @@
             eyeIcon.classList.toggle('bi-eye');
             eyeIcon.classList.toggle('bi-eye-slash');
         });
+
     </script>
     
