@@ -1,10 +1,3 @@
-// Get today's date in DD-MM-YYYY format
-const today = new Date();
-const formattedToday = `${String(today.getDate()).padStart(2, '0')}-${String(today.getMonth() + 1).padStart(2, '0')}-${today.getFullYear()}`;
-
-// Set the date value
-document.getElementById('date').value = formattedToday;
-
 // Function to get the week number of the month
 const getMonthWeekNumber = (date) => {
     const startOfMonth = new Date(date.getFullYear(), date.getMonth(), 1);
@@ -12,17 +5,30 @@ const getMonthWeekNumber = (date) => {
     return Math.ceil((pastDaysOfMonth + startOfMonth.getDay() + 1) / 7);
 };
 
-// Get the week number for today
-const weekNumber = getMonthWeekNumber(today);
-document.getElementById('week').value = weekNumber;
-
-
 // Array of month names
 const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-// Get the month name for today
-const monthName = monthNames[today.getMonth()];
-document.getElementById('month').value = monthName;
+document.getElementById('dateS').addEventListener('change', function() {
+    const date = new Date(this.value);
+
+    const formattedDate = `${String(date.getDate()).padStart(2, '0')}-${String(date.getMonth() + 1).padStart(2, '0')}-${date.getFullYear()}`
+
+    // Set the date value
+    document.getElementById('date').value = formattedDate;
+
+    // Get the week number for today
+    const weekNumber = getMonthWeekNumber(date);
+    document.getElementById('week').value = weekNumber;
+
+    // Get the month name for today
+    const monthName = monthNames[date.getMonth()];
+    document.getElementById('month').value = monthName;
+
+});
+
+// Get today's date in DD-MM-YYYY format
+// const today = new Date();
+// const formattedToday = `${String(today.getDate()).padStart(2, '0')}-${String(today.getMonth() + 1).padStart(2, '0')}-${today.getFullYear()}`;
 
 
 // function to convert 24 hour format to 12 hour format

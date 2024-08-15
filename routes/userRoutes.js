@@ -27,7 +27,7 @@ router.get('/dashboardCRoom/attForm',isLoggedIn, wrapAsync(userController.render
 router.get('/dashboardCRoom/poAForm',isLoggedIn, wrapAsync(userController.renderPoAForm));
 
 // Route to search students list
-router.get('/dashboardCRoom/attForm/studList',isLoggedIn, wrapAsync(userController.renderStudentsList));
+router.post('/dashboardCRoom/attForm/studList',isLoggedIn, wrapAsync(userController.renderStudentsList));
 
 // Route to save attendance data
 router.post('/dashboardCRoom/attForm/studList/saveAtt',isLoggedIn,validateAttData, wrapAsync(userController.saveAttendance));

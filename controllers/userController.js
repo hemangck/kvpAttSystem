@@ -38,6 +38,8 @@ module.exports.renderStudentsList = async (req, res) => {
         const week0 = attData0.Week;
         const tSlot0 = attData0.tSlot;
 
+        // console.log(date0);
+
         const studentsData = await kvpData.find(
             {
                 Taluka: taluka0,
