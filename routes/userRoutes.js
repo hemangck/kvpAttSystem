@@ -30,7 +30,7 @@ router.get('/dashboardCRoom/poAForm',isLoggedIn, wrapAsync(userController.render
 router.post('/dashboardCRoom/attForm/studList',isLoggedIn, wrapAsync(userController.renderStudentsList));
 
 // Route to save attendance data
-router.post('/dashboardCRoom/attForm/studList/saveAtt',isLoggedIn,validateAttData, wrapAsync(userController.saveAttendance));
+router.post('/dashboardCRoom/attForm/studList/saveAtt',isLoggedIn, wrapAsync(userController.saveAttendance));
 
 
 // Route to render add new student section and post action route to deal with the operation
