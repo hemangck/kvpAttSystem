@@ -12,7 +12,7 @@ module.exports.kvpDataSchema = Joi.object({
         Taluka: Joi.string().required(),
         Std: Joi.string().required(),
         School: Joi.string().required(),
-        Class: Joi.number().required().min(1).max(10),
+        Class: Joi.string().required(),
         Group: Joi.string().required(),
         HOD: Joi.string().required(),
         Supervisor: Joi.string().required(),
