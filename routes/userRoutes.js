@@ -38,7 +38,7 @@ router.get("/dashboardData/addNewStudent",isLoggedIn, wrapAsync(userController.r
 router.get("/dashboardData/addNewStudent/mulEnteries",isLoggedIn, wrapAsync(userController.renderMulEntries));
 router.get("/dashboardData/addNewStudent/manage-data/new",isLoggedIn, wrapAsync(userController.renderNewForm));
 router.post("/dashboardData/addNewStudent/manage-data",isLoggedIn, wrapAsync(userController.createData));
-router.post('/dashboardData/addNewStudent/mulEnteries/upload',isLoggedIn, upload.single('csvFile'),validateKvpData, wrapAsync(userController.uploadFile));
+router.post('/dashboardData/addNewStudent/mulEnteries/upload',isLoggedIn, upload.single('csvFile'), wrapAsync(userController.uploadFile));
 
 // Route to search kvp student data based on form
 router.get("/dashboardData/kvpDataForm",isLoggedIn, wrapAsync(userController.renderFormPage));
