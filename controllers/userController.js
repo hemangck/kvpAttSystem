@@ -551,9 +551,11 @@ module.exports.uploadFile = async (req, res) => {
                 try {
                     await kvpData.insertMany(jsonData);
                     req.flash("success", "Data has been successfully saved to the database!");
+                    res.redirect(`/${req.user._id}/dashboard/dashboardData/addNewStudent`);
                 } catch (err) {
                     console.error('Error saving data to the database', err);
                     req.flash("error", "Error saving data to the database!");
+                    res.redirect(`/${req.user._id}/dashboard/dashboardData/addNewStudent`);
                 } finally {
                     fs.unlinkSync(filePath);  // Clean up the uploaded file
                 }
@@ -585,13 +587,13 @@ exports.downloadCSV = async (req, res) => {
         const TimeSlotF = formData.TimeSlot;
 
         // Derive initials for filename generation (commented out)
-        const tFCh = TalukaF.charAt(0);
-        const sFCh = SchoolF.charAt(0);
-        const gFCh = GroupF.charAt(0);
-        const hFCh = HODF.charAt(0);
-        const spFCh = SupervisorF.charAt(0);
-        const kFCh = KishoriTaiF.charAt(0);
-        const fileName = `${tFCh}${sFCh}${ClassF}${gFCh}${hFCh}${spFCh}${kFCh}_${DateF}_${TimeSlotF}`;
+        // const tFCh = TalukaF.charAt(0);
+        // const sFCh = SchoolF.charAt(0);
+        // const gFCh = GroupF.charAt(0);
+        // const hFCh = HODF.charAt(0);
+        // const spFCh = SupervisorF.charAt(0);
+        // const kFCh = KishoriTaiF.charAt(0);
+        // const fileName = `${tFCh}${sFCh}${ClassF}${gFCh}${hFCh}${spFCh}${kFCh}_${DateF}_${TimeSlotF}`;
 
         // Retrieve the filtered data from the database
         const filteredData = await attData.find(
@@ -639,9 +641,9 @@ exports.downloadCSV = async (req, res) => {
             Month: MonthF,
             Week: WeekF,
             TimeSlot: TimeSlotF,
-            totalCount: filteredData[0]?.totalCount || '',
-            presentCount: filteredData[0]?.presentCount || '',
-            absentCount: filteredData[0]?.absentCount || ''
+            totalCount: filteredData[0]?.totalCount || 0,
+            presentCount: filteredData[0]?.presentCount || 0,
+            absentCount: filteredData[0]?.absentCount || 0
         };
 
         // Combine static fields with dynamic data
@@ -682,11 +684,11 @@ exports.downloadCSV = async (req, res) => {
             fs.mkdirSync(outputDir, { recursive: true });
         }
 
-        const outputPath = path.join(outputDir, `${fileName}.csv`);
+        const outputPath = path.join(outputDir, 'attendance.csv');
         fs.writeFileSync(outputPath, csv);
 
         // Send the CSV file for download
-        res.download(outputPath, `${fileName}.csv`, (err) => {
+        res.download(outputPath, 'attendance.csv', (err) => {
             if (err) {
                 console.error('Error during file download:', err);
                 req.flash("error", "Error during file download");

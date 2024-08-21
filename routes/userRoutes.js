@@ -62,7 +62,7 @@ router.get("/dashboardData/mis",isLoggedIn, wrapAsync(userController.renderMisDa
 router.get("/dashboardData/mis/:date",isLoggedIn, wrapAsync(userController.renderMisPage));
 
 // Route to download template csv file and upload the csv file for successful database insertion
-router.post('/dashboardData/mis/:date/results/download',isLoggedIn,validateAttData, wrapAsync(userController.downloadCSV));
+router.post('/dashboardData/mis/:date/results/download',isLoggedIn, wrapAsync(userController.downloadCSV));
 
 // Route for mis results for get and post operation
 router
