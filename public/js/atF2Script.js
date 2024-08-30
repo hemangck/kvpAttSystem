@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
+
+    document.getElementById('classH').value = document.getElementById('sClass').value;
+
     const classCBoxes = document.querySelectorAll('input[name="classCheck"]');
     const toggleSwitches = document.querySelectorAll('input[name="AttStatus"]');
     let totalCount = 0;
@@ -14,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 toggleSwitch.disabled = false; // Enable the associated toggle switch
                 totalCount++;
                 absentCount++; // Initially consider as absent
-                document.getElementById('classH').value = document.getElementById('sClass').value;
             } else {
                 if (!toggleSwitch.disabled) {
                     if (toggleSwitch.checked) {

@@ -24,7 +24,7 @@ module.exports.attDataSchema = Joi.object({
     attData: Joi.object({
         Taluka: Joi.string().required(),
         School: Joi.string().required(),
-        Class: Joi.number().required().min(1).max(20),
+        Class: Joi.number().required().min(1),
         Group: Joi.string().required(),
         HOD: Joi.string().required(),
         Supervisor: Joi.string().required(),
