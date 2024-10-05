@@ -108,18 +108,6 @@ app.use((req, res, next) => {
     next();
 });
 
-// app.get("/demouser", async (req, res) => {
-//     let fakeUser = new User({
-//         name: "Varsha Chande",
-//         email:"vschande@mail.com",
-//         username:"vschande",
-//         role: "Kishori_Tai"
-//     });
-
-//     let registeredUser = await User.register(fakeUser, "varsha473");
-//     res.send(registeredUser);
-// });
-
 // setting routes
 app.use('/', homeRoutes);
 app.use('/:userId/dashboard', userRoutes);
@@ -127,15 +115,15 @@ app.use('/',authRoutes);
 app.use('/',gFormRoutes);
 
 
-// // error handling mechanism
-// app.all("*", (req,res,next) => {
-//     next(new ExpressError(404, "Page not found!"));
-// })
+// error handling mechanism
+app.all("*", (req,res,next) => {
+    next(new ExpressError(404, "Page not found!"));
+})
 
-// app.use((err, req, res, next) => {
-//     const { statusCode = 500, message = "something went wrong!" } = err;
-//     res.status(statusCode).render("error", { message });
-// });
+app.use((err, req, res, next) => {
+    const { statusCode = 500, message = "something went wrong!" } = err;
+    res.status(statusCode).render("error", { message });
+});
 
 app.listen(8080, () => {
     console.log("Server is listening on port 8080");
