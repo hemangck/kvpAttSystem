@@ -32,11 +32,6 @@ const userRoutes = require('./routes/userRoutes');
 const authRoutes = require('./routes/authRoutes');
 const gFormRoutes = require('./routes/gFormRoutes');
 
-// const PORT = process.env.PORT || 8080;
-// const PORT = process.env.PORT;
-
-// connecting to mongodb database
-// const MONGO_URL = "mongodb://127.0.0.1:27017/kvpDB";
 const dbUrl = process.env.ATLASDB_URL;
 
 main()
