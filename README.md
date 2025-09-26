@@ -15,7 +15,7 @@ It empowers teachers, supervisors, and administrators with tools to manage atten
 - ✅ **Role-Based Authentication** – Separate dashboards for Admins, Supervisors, and Teachers  
 - 📝 **Attendance Management** – Mark daily attendance and generate reports  
 - 👩‍🎓 **Student Data Management** – Add, update, and remove student records (CRUD)  
-- 📊 **View Attendance Records** – Filter by class, date, or student  
+- 📊 **View Attendance Records** – Filter by class, date, admin, supervisors, teachers  
 - 🆕 **User Registration** – Admin can create accounts for teachers & supervisors  
 
 ---
