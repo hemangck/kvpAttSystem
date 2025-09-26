@@ -1,18 +1,30 @@
-# 🏢 Project Name
+# 🏢 KVP Digital Portal
 
-> KVP Digital Portal 
+> **Full-stack web application for Kishori Vikas Prakalp (KVP)** serving  
+> **20 schools, 17 classes, 1,942 students, 16 teachers, 3 supervisors, & 2 admins**,  
+> enabling digital management of tasks and reducing reliance on physical registers.
 
 ---
 
 ## 📌 Overview
 
-> Full-stack web application for Kishori Vikas Prakalp (KVP) serving 20 schools, 17 classes, 1,942 students, 16 teachers, 3 supervisors, & 2 admins, enabling digital management of tasks and reducing reliance on physical registers.
-> Key Features include role-based authentication, attendance marking, CRUD operations on student data, view attendance records, and user registration.
+The **KVP Digital Portal** is designed to streamline school operations by digitizing manual processes.  
+It empowers teachers, supervisors, and administrators with tools to manage attendance, student records, and overall reporting.
+
+### ✨ Key Features
+- ✅ **Role-Based Authentication** – Separate dashboards for Admins, Supervisors, and Teachers  
+- 📝 **Attendance Management** – Mark daily attendance and generate reports  
+- 👩‍🎓 **Student Data Management** – Add, update, and remove student records (CRUD)  
+- 📊 **View Attendance Records** – Filter by class, date, or student  
+- 🆕 **User Registration** – Admin can create accounts for teachers & supervisors  
 
 ---
 
 ## 🛠 Tech Stack
 
-> Frontend - HTML, CSS, JavaScript, Bootstrap, EJS
-> Backend - Node.js, Express.js
-> Database - MongoDB
+| Layer      | Technologies                       |
+|-----------|------------------------------------|
+| **Frontend** | HTML, CSS, JavaScript, Bootstrap, EJS |
+| **Backend**  | Node.js, Express.js               |
+| **Database** | MongoDB                           |
+
